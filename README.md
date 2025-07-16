@@ -17,7 +17,7 @@ Here are the 50Kg population abbreviations used by JEPEGMIX3-P. AFR is an abbrev
 |**Population Abbreviation**|**Number of Subjects**|**Super Population**|**Population Description**|
 |:---|:---|:---|:---|
 |AAGPC|7038|AFR|African Ancestry Genomic Pshychiatry Cohort|
-|LAPGC|7233|AMR|Latino Ancestry Genomic Pshychiatry Cohort|
+|LAGPC|7233|AMR|Latino Ancestry Genomic Pshychiatry Cohort|
 |ACB|164|AFR|African Caribbeans in Barbados|
 |ASW|162|AFR|African Ancestry in Southwest US|
 |BEB|86|SAS|Bengali from Bangladesh|
