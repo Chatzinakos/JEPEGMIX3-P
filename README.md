@@ -56,7 +56,7 @@ Here are the 50Kg population abbreviations used by JEPEGMIX3-P. AFR is an abbrev
 
 # JEPEGMIX3-P Input File Format
 ###JEPEGMIX3-P takes as input a plain text file with rows and columns denoting SNPs and variables, respectively. The first line of the input file should be column names/headers. Data entries on each line should be separated by white space. 
-The file should contain six columns, and optional another one: 1) rsid (SNP ID), 2) chr (chromosome number), 3) bp (base pair position), 4) a1 (reference allele), 5) a2 (alternative allele), 6) z (normally distributed GWAS/meta-analysis summary statistic, i.e. two-tailed Z-score) and 7) AF (Allele Frequency information, Optional)). JEPEGMIX2-P does not require the input data to be sorted in ascending order by chromosome number and base pair position or SNP ID. Here is a sample JEPEGMIX2-P input file.
+The file should contain six columns, and optional another one: 1) rsid (SNP ID), 2) chr (chromosome number), 3) bp (base pair position), 4) a1 (reference allele), 5) a2 (alternative allele), 6) z (normally distributed GWAS/meta-analysis summary statistic, i.e. two-tailed Z-score) and 7) AF (Allele Frequency information, Optional)). JEPEGMIX3-P does not require the input data to be sorted in ascending order by chromosome number and base pair position or SNP ID. Here is a sample JEPEGMIX3-P input file.
 
 ```
 rsid        chr  bp         a1  a2  z          AF    
@@ -71,7 +71,7 @@ rs10001127  4    130547376  T   C   0.069329   0.09
 
 rs1000113   5    150240076  T   C  -1.447288   0.33  
 ```
-**DISTMIX3 (version.0.1.0) imputation:** If your input summary data is generated from non-imputed genotype data (i.e. non-imputed GWASs or exome sequencing studies), you may want to impute summary statistics of unmeasured functional variants based on external panels (e.g. 350Kg). By using "--impute" option, you can make the software impute them using DISTMIX3 before performing JEPEGMIX3-P analysis. In this case, the software assumes that all SNPs in your input file are measured with Info=1.
+**DISTMIX3 (version.0.1.0) imputation:** If your input summary data is generated from non-imputed genotype data (i.e. non-imputed GWASs or exome sequencing studies), you may want to impute summary statistics of unmeasured functional variants based on external panels (e.g. 50Kg). By using "--impute" option, you can make the software impute them using DISTMIX3 before performing JEPEGMIX3-P analysis. In this case, the software assumes that all SNPs in your input file are measured with Info=1.
 
 **Note:** The user must ensure that the genome assembly used for both the GWAS summary statistics and the annotation data matches, and must select either GRCh37 (hg19) or GRCh38 (hg38) accordingly. Only these two genome builds are supported. If necessary, conversion between builds can be performed using the UCSC [liftover](https://genome.ucsc.edu/cgi-bin/hgLiftOver). Make sure all input coordinates are aligned to the selected genome assembly.
 
@@ -120,16 +120,17 @@ Path_c Br_Put_bas_gang    GO_CYTOPLASMIC_REGION                         39   19.
 |**Option**|**Short Flag**|**Parameter**|**Default**|**Description**|
 |:---|:---|:---|:---|:---|
 |--version|-v|none|none|Prints version information.|
-|--help|-h|none|none|Outputs a full description of all JEPEGMIX2-P options.|
-|--impute|-p|none|FALSE|Imputes summary statistics of unmeasured functional SNPs using DISTMIX2 imputation before JEPEGMIX2-P analysis.|
+|--help|-h|none|none|Outputs a full description of all JEPEGMIX3-P options.|
+|--impute|-p|none|FALSE|Imputes summary statistics of unmeasured functional SNPs using DISTMIX3 imputation before JEPEGMIX3-P analysis.|
 |--reference|-r|filename|none|The filename of the reference population data.|
 |--referenceIndex|-i|filename|none|The filename of the reference population index data.|
 |--annotation|-a|filename|none|The filename of the SNP annotation data set.|
-|--output|-o|filename|out.gene.jepegmix2.txt|The genes filename of JEPEGMIX2-P output.|
-|--zpath|-x|filename|out.path.jepegmix2.txt"|The pathways filename of JEPEGMIX2-P output.|
+|--output|-o|filename|out.gene.jepegmix3.txt|The genes filename of JEPEGMIX3-P output.|
+|--zpath|-x|filename|out.path.jepegmix3.txt"|The pathways (without direction) filename of JEPEGMIX3-P output.|
+|--dpath|-d|filename|out.diretc_path.jepegmix3.txt"|The pathways (with direction) filename of JEPEGMIX3-P output.|
 |--populationWeight|-w|filename|none|The filename of the super population weight data.|
-|--windowSize|-n|decimal|0.5|The size of the DISTMIX2 imputation prediction window (Mb).|
-|--wingSize|-m|decimal|0.25|The size of the wing added on the left and right of the DISTMIX2 imputation prediction window (Mb).|
+|--windowSize|-n|decimal|0.5|The size of the DISTMIX3 imputation prediction window (Mb).|
+|--wingSize|-m|decimal|0.25|The size of the wing added on the left and right of the DISTMIX3 imputation prediction window (Mb).|
 |--snp_el|none|none|FALSE|Conditional analysis flag.|
 |--measured_snps|-z|integer|50|Number of measured Snps.|
 |--Genome|-g|none|none|Which Genome (GRCh37 or GRCh38).|
