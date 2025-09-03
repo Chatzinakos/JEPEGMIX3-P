@@ -91,17 +91,16 @@ The first line of the super-population weight file should be column names/header
 
 # JEPEGMIX3-P output file format for genes analysis
 
-The JEPEGMIX3-P output file, for genes analysis, has twelve columns: 1) type name (Type), 2) tissue name (Tissue), 3) gene name (Geneid), 4) chromosome (Chr), 5) bare paise start (bp_s), 6) bare paise end (bp_e), 7) number of functional SNPs associated with gene (Num_SNPs), 8) pre sestimated q value (Q), 9) JEPEGMIX3-P z-value (Zval) 10) JEPEGMIX3-P p-value (Pval) 11) JEPEGMIX3-P q-value with Holm method (Qval_holm), 12) JEPEGMIX3-P q-value with FDR method (Qval_fdr). The first line of the output file is column names/headers.  Here is a sample JEPEGMIX3-P genes output file, with 3 genes:
+The JEPEGMIX3-P output file, for genes analysis, has twelve columns: 1) type name (Type), 2) tissue name (Tissue), 3) gene name (Geneid), 4) chromosome (Chr), 5) bare paise start (bp_s), 6) bare paise end (bp_e), 7) number of functional SNPs associated with gene (Num_SNPs), 8) pre sestimated q value (Q), 9) JEPEGMIX3-P z-value (Zval) 10) JEPEGMIX3-P p-value (Pval) 11) JEPEGMIX3-P q-value with Holm method (Qval_holm), 12) JEPEGMIX3-P q-value with FDR method (Qval_fdr), 13) JEPEGMIX3-P BETA (BETA) and 14) JEPEGMIX3-P SE (SE). The first line of the output file is column names/headers.  Here is a sample JEPEGMIX3-P genes output file, with 3 genes:
 
 ```
-Type          Tissue              NAME    Chr   bp_s        bp_e    Num_SNPs     Q        Zval       Pval     Qval_holm  Qval_fdr
+Type          Tissue                NAME   Chr   bp_s        bp_e    Num_SNPs    Q         Zval       Pval     Qval_holm  Qval_fdr    BETA     SE
 
-Gene   TW_Artery_Coronary_0.5      FABP3    1   30852689   32699227   76     0.0127005    1.85878   0.0630578      1   0.99  
+Gene   TW_Artery_Coronary_0.5      FABP3    1   30852689   32699227   76     0.0127005    1.85878   0.0630578      1         0.99   1.85878    1    
 
-Gene   TW_Artery_Coronary_0.5      TXLNA    1   32480657   32480657   1      0.00194273  -1.72314   0.0848635      1   1  
-
-Gene   TW_Artery_Coronary_0.5      DCDC2B   1   32160918   33610468   11     0.0205775    0.996671  0.318924       1   1
-
+Gene   TW_Artery_Coronary_0.5      TXLNA    1   32480657   32480657   1      0.00194273  -1.72314   0.0848635      1           1    -1.72314   1 
+    
+Gene   TW_Artery_Coronary_0.5      DCDC2B   1   32160918   33610468   11     0.0205775    0.996671  0.318924       1           1    0.996671   1
 ```
 
 # JEPEGMIX3-P output file format for pathway analysis
