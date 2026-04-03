@@ -56,7 +56,7 @@ Here are the 50Kg population abbreviations used by JEPEGMIX3-P. AFR is an abbrev
 
 # JEPEGMIX3-P Input File Format
 ###JEPEGMIX3-P takes as input a plain text file with rows and columns denoting SNPs and variables, respectively. The first line of the input file should be column names/headers. Data entries on each line should be separated by white space. 
-The file should contain six columns, and optional another one: 1) rsid (SNP ID), 2) chr (chromosome number), 3) bp (base pair position), 4) a1 (reference allele), 5) a2 (alternative allele), 6) z (normally distributed GWAS/meta-analysis summary statistic, i.e. two-tailed Z-score) and 7) AF (Allele Frequency information, Optional)). JEPEGMIX3-P does not require the input data to be sorted in ascending order by chromosome number and base pair position or SNP ID. Here is a sample JEPEGMIX3-P input file.
+The file should contain six columns, and optional another one: 1) rsid (SNP ID), 2) chr (chromosome number), 3) bp (base pair position), 4) a1 (effect allele), 5) a2 (non-effect allele), 6) z (normally distributed GWAS/meta-analysis summary statistic, i.e. two-tailed Z-score) and 7) AF (Allele Frequency information, Optional)). JEPEGMIX3-P does not require the input data to be sorted in ascending order by chromosome number and base pair position or SNP ID. Here is a sample JEPEGMIX3-P input file.
 
 ```
 rsid        chr  bp         a1  a2  z          AF    
