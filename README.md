@@ -3,7 +3,7 @@
 # Download JEPEGMIX3
 The current release (Version 0.1.0) of JEPEGMIX3-P is for a Linux user. The pre-compiled executables for other operating systems (e.g.,  Windows, MacOS) will be available soon. The latest source codes of JEPEGMIX3-P are available upon request (christos.chatzinakos@downstate.edu). 
 
-|**Direct download link**|**Versiom**|**Release Date**|**Note**|
+|**Direct download link**|**Version**|**Release Date**|**Note**|
 |:---|:---|:---|:---|
 |[JEPEGMIX3-P (jepegmix3_P2) for a Linux user](https://www.dropbox.com/sh/tiedrhw8ncbl01n/AAAQpphs1OWHZPj2397n0t-ta?dl=0)|v02.1.0|09/07/2025|Includes info file for several scenarios|
 
@@ -115,7 +115,7 @@ Path_c Br_Put_bas_gang    GO_CYTOPLASMIC_MRNA_PROCESSING_BODY_ASSEMBLY  1    1.1
 Path_c Br_Put_bas_gang    GO_CYTOPLASMIC_REGION                         39   19.247    0.996651    1           1        -5.27472   NA
 ```
 
-# Programm Options
+# Program Options
 
 |**Option**|**Short Flag**|**Parameter**|**Default**|**Description**|
 |:---|:---|:---|:---|:---|
@@ -138,3 +138,17 @@ Path_c Br_Put_bas_gang    GO_CYTOPLASMIC_REGION                         39   19.
 |--exc|none|none|none|Which chr(s) and interval(s) to exclude (--exc 6:25-35,5:10-20)(Position is in MB), only for pathway analysis.|
 |--gnexc|none|none|none|Which gene include (--gnexc C4A,NOC2L), only for pathway analysis.|
 |--chromosome|-c|none|none|The chromosome number (or the chromosome number and arm, e.g., -c 1q), only for gene analysis|
+
+
+
+# Example Usage
+Note that you do not need to explicitly define population in the command. An advantage of the software is that this is performed automatically based on allele frequencies in your input GWAS. If your GWAS file does not have allele frequencies and you use the super population weight file this will impute allele frequncies with proportional weights to those in the reference data for the specified super populations provided. Below is an example of performing on the gene based analysis, simply add your output paths for the pathway analyses: 
+
+	$SOFT_DIR/jepegmix3p_50k INPUT_FILE \
+	-r "$REF_DIR/50kg_geno.gz" \
+	-i "$REF_DIR/50kg_index.gz" \
+	-a "$REF_DIR/annotation_GTEx_v8.txt" \
+	-o "$RES_DIR/$(basename "$INPUT_FILE").gene.jepegmix3.txt" \
+	-w "$REF_DIR/eur.superpop.wgt.txt" \
+	-g GRCh37 \
+    >> TWAS_log.txt 2>&1
